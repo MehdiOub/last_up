@@ -1,0 +1,14 @@
+<p>stock-view works!</p>
+<table class="table   "  *ngIf="stocks.length !=0">
+  <thead>
+  <th>Id</th>
+  <th>Libelle</th>
+
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of stocks ;  index as i">
+    <td>{{c.id}}</td>
+    <td>{{c.libelle}}</td>
+  </tr>
+  </tbody>
+</table>

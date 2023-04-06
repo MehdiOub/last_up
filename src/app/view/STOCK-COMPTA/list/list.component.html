@@ -1,0 +1,114 @@
+<div class="card">
+  <div class="card-header">
+    <h2>List magasin</h2>
+
+  </div>
+  <div class="card-body">
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>  ID  </th>
+        <th> Libelle</th>
+
+        <th> Code </th>
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let magasin of magasins " >
+        <td>{{magasin.id}} </td>
+        <td>{{magasin.libelle}}  </td>
+        <td>{{magasin.code}}  </td>
+
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<!---------------------list 2 ------------------------------->
+
+<div class="card">
+  <div class="card-header">
+    <h2>List categories </h2>
+
+  </div>
+  <div class="card-body">
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th> ID</th>
+        <th> libelle</th>
+        <th> code </th>
+
+        <th>  comptebudg </th>
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let categorie of categories" >
+        <td>{{categorie.id}}  </td>
+
+        <td>{{categorie.libelle}}  </td>
+
+
+        <td  >{{categorie.code }}  </td>
+
+        <td> {{categorie.compteBudgetaire}} </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+
+<!---------------------list 2 ------------------------------->
+
+<div class="card">
+  <div class="card-header">
+    <h2>List stock</h2>
+
+  </div>
+  <div class="card-body">
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th> Libelle</th>
+        <th> Code</th>
+        <th> CategorieProduit(name)</th>
+
+        <th> Stock</th>
+
+
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let stock of stocks" >
+        <td>{{ stock.id }}  </td>
+        <td>{{ stock.libelle }}  </td>
+
+        <td >
+
+          {{ stock.magasin }}
+
+        </td>
+        <td> {{ stock.produit }} </td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteProduit(magasin.libelle)" >Delete </button>
+        </td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

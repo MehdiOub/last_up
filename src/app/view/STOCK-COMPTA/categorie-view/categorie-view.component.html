@@ -1,0 +1,14 @@
+<table class="table   "  *ngIf="categories.length !=0">
+  <thead>
+  <th>Id</th>
+  <th>Libelle</th>
+  <th>Code</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of categories ;  index as i">
+    <td>{{c.id}}</td>
+    <td>{{c.libelle}}</td>
+    <td>{{c.code}}</td>
+  </tr>
+  </tbody>
+</table>

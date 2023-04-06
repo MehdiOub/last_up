@@ -1,0 +1,19 @@
+<p>categorie-list works!</p>
+<table class="table   "  *ngIf="categories.length !=0">
+
+  <thead>
+  <th>Libelle</th>
+
+  <th>Delete Action</th>
+
+
+
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of categories ;  index as i">
+    <td>{{c.libelle}}</td>
+
+    <td><span (click)="deleteByLibelle(c,i) " class="fa fa-trash btn btn-success"></span></td>
+  </tr>
+  </tbody>
+</table>

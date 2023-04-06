@@ -1,0 +1,19 @@
+<table class="table   "  *ngIf="magasins.length !=0">
+
+  <thead>
+  <th>Libelle</th>
+
+  <th>Delete Action</th>
+
+
+
+  </thead>
+  <tbody>
+  <tr *ngFor="let c of magasins ;  index as i">
+    <td>{{c.libelle}}</td>
+
+    <td><span (click)="deleteByLibelle(c,i) " class="fa fa-trash btn btn-success"></span></td>
+  </tr>
+
+  </tbody>
+</table>
