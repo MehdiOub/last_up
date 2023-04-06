@@ -32,6 +32,9 @@ export class StockCreateComponent implements OnInit {
           alert('save succreful');
         } else {
           alert('save failed');
+
+
+
         }
       });
     }
