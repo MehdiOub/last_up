@@ -34,7 +34,6 @@ export class StockCreateComponent implements OnInit {
           alert('save failed');
 
 
-
         }
       });
     }
