@@ -32,12 +32,10 @@ export class StockCreateComponent implements OnInit {
           alert('save succreful');
         } else {
           alert('save failed');
-
-
         }
       });
     }
-  public findAll(): void {
+  public findAlls(): void {
     this.magasinService.findAll().subscribe(data =>
       this.magasins = data);
   }
@@ -55,8 +53,12 @@ export class StockCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findAll();
+    this.findAlls();
     this.FindAll();
+
+  }
+  onSubmit(){
+    this.save();
   }
 
 }

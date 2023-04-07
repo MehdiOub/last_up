@@ -19,7 +19,7 @@ export class MagasinListComponent implements OnInit {
   }
   public deleteByLibelle(magasin:Magasin ,index:number): void{
 
-    this._magasinService.deleteByLibelle(magasin.libelle).subscribe(data=>{
+    this._magasinService.deleteMagasinByLibelle(magasin.libelle).subscribe(data=>{
       if(data>0){
         this.magasins.splice(index,1);
 

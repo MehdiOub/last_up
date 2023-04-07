@@ -5,7 +5,7 @@
   </div>
   <div class="card-body">
 
-    <table class="table table-striped">
+    <table class="table table-striped" *ngIf="magasins.length !=0">
       <thead>
       <tr>
         <th>  ID  </th>
@@ -18,12 +18,15 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let magasin of magasins " >
+      <tr *ngFor="let magasin of magasins ; index as i">
         <td>{{magasin.id}} </td>
         <td>{{magasin.libelle}}  </td>
         <td>{{magasin.code}}  </td>
 
+
+        <td><span (click)="deleteMagasinByLibelle(magasin,i) " class="fa fa-trash btn btn-success"></span></td>
       </tr>
+
 
       </tbody>
     </table>
@@ -39,21 +42,19 @@
   </div>
   <div class="card-body">
 
-    <table class="table table-striped">
+    <table class="table table-striped" *ngIf="categories.length !=0">
       <thead>
       <tr>
         <th> ID</th>
         <th> libelle</th>
         <th> code </th>
 
-        <th>  comptebudg </th>
-
 
 
       </tr>
       </thead>
       <tbody>
-      <tr  *ngFor="let categorie of categories" >
+      <tr  *ngFor="let categorie of categories ;index as i" >
         <td>{{categorie.id}}  </td>
 
         <td>{{categorie.libelle}}  </td>
@@ -62,6 +63,8 @@
         <td  >{{categorie.code }}  </td>
 
         <td> {{categorie.compteBudgetaire}} </td>
+        <td><span (click)="deleteCategorieByLibelle(categorie ,i) " class="fa fa-trash btn btn-success"></span></td>
+
       </tr>
       </tbody>
     </table>
@@ -81,12 +84,12 @@
     <table class="table table-striped">
       <thead>
       <tr>
-        <th> Libelle</th>
-        <th> Code</th>
-        <th> CategorieProduit(name)</th>
+        <th> id</th>
 
-        <th> Stock</th>
 
+        <th> quantityStocke</th>
+        <th> Magasin_libelle</th>
+        <th> Produit_libelle</th>
 
 
 
@@ -95,18 +98,14 @@
       <tbody>
       <tr  *ngFor="let stock of stocks" >
         <td>{{ stock.id }}  </td>
-        <td>{{ stock.libelle }}  </td>
 
+        <td>{{ stock.quantityStocke }}  </td>
         <td >
 
-          {{ stock.magasin }}
+          {{ stock.magasin.libelle }}
 
         </td>
-        <td> {{ stock.produit }} </td>
-        <td>
-          <button class="btn btn-danger" (click)="deleteProduit(magasin.libelle)" >Delete </button>
-        </td>
-
+        <td> {{ stock.produit.libelle }} </td>
       </tr>
       </tbody>
     </table>

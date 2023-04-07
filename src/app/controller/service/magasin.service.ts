@@ -16,7 +16,7 @@ export class MagasinService {
     return this.http.get<Array<Magasin>>(this.Url+ '/all');
   }
 
-  public deleteByLibelle(libelle: string): Observable<number> {
+  public deleteMagasinByLibelle(libelle: string): Observable<number> {
     return this.http.delete<number>(this.Url + '/delelteMagasinByLibelle/'+libelle);
   }
 

@@ -2,13 +2,15 @@
 <div class="card">
   <div class="card-header">Create a new magasin</div>
   <div class="card-body">
-    <div class="form-group">
-      <label for="libelle">Libelle:</label>
-      <input id="libelle" type="text" class="form-control" [(ngModel)]="stock.libelle">
+    <form (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+      <label for="quantityStocke">quantityStocke:</label>
+      <input id="quantityStocke" type="text" class="form-control" [(ngModel)]="stock.quantityStocke" [ngModelOptions]="{standalone: true}" >
     </div>
     <div class="form-group">
       <label for="magasin_Libelle"> magasin_Libelle </label>
-      <select  placeholder="name" name="produit" class="form-control" id="magasin_Libelle"  [(ngModel)]="stock.magasin.libelle" >
+      <select  placeholder="name" name="produit" class="form-control" id="magasin_Libelle"  [(ngModel)]="stock.magasin.libelle" [ngModelOptions]="{standalone: true}">
         <option *ngFor="let magasin of magasins" [value]="stock.magasin">{{ magasin.libelle }}</option>
 
       </select>
@@ -16,12 +18,13 @@
     </div>
     <div class="form-group">
       <label for="produit_Libelle"> produit_Libelle </label>
-      <select  placeholder="name" name="produit" class="form-control" id="produit_Libelle"  [(ngModel)]="stock.produit.libelle" >
+      <select  placeholder="name" name="produit" class="form-control" id="produit_Libelle"  [(ngModel)]="stock.produit.libelle" [ngModelOptions]="{standalone: true}">
         <option *ngFor="let produit of produits" [value]="stock.produit">{{ produit.libelle }}</option>
 
       </select>
 
     <button class="btn btn-success" (click)="save()">Save</button>
   </div>
+    </form>
 </div>
 </div>

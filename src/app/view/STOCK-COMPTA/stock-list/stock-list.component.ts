@@ -14,7 +14,7 @@ export class StockListComponent implements OnInit {
     this.stockService.findAll().
     subscribe(data => this.stocks = data);
   }
-  public deleteByLibelle(stock:Stock ,index:number): void{
+  /*public deleteByLibelle(stock:Stock ,index:number): void{
 
     this.stockService.deleteByLibelle(stock.libelle).subscribe(data=>{
       if(data>0){
@@ -24,7 +24,7 @@ export class StockListComponent implements OnInit {
         alert('DEL ERROR')
       }
     })
-  }
+  }*/
   ngOnInit(): void {
     this.findAll();
 
