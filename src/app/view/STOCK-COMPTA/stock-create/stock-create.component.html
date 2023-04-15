@@ -5,26 +5,31 @@
     <form (ngSubmit)="onSubmit()">
 
       <div class="form-group">
-      <label for="quantityStocke">quantityStocke:</label>
-      <input id="quantityStocke" type="text" class="form-control" [(ngModel)]="stock.quantityStocke" [ngModelOptions]="{standalone: true}" >
-    </div>
-    <div class="form-group">
-      <label for="magasin_Libelle"> magasin_Libelle </label>
-      <select  placeholder="name" name="produit" class="form-control" id="magasin_Libelle"  [(ngModel)]="stock.magasin.libelle" [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let magasin of magasins" [value]="stock.magasin">{{ magasin.libelle }}</option>
+        <label for="quantityStocke">quantityStocke:</label>
+        <input id="quantityStocke" type="text" class="form-control"
+               [(ngModel)]="stock.quantityStocke" name="quantityStocke">
+      </div>
 
-      </select>
+      <div class="form-group">
+        <label for="produit_Libelle"> produit_Libelle </label>
+        <select placeholder="name" name="produit" class="form-control" id="produit_Libelle"
+                [(ngModel)]="stock.produit.libelle" name="produit_Libelle">
+          <option *ngFor="let produit of produits" [value]="produit.libelle">{{produit.libelle}}</option>
+        </select>
+      </div>
 
-    </div>
-    <div class="form-group">
-      <label for="produit_Libelle"> produit_Libelle </label>
-      <select  placeholder="name" name="produit" class="form-control" id="produit_Libelle"  [(ngModel)]="stock.produit.libelle" [ngModelOptions]="{standalone: true}">
-        <option *ngFor="let produit of produits" [value]="stock.produit">{{ produit.libelle }}</option>
+      <div class="form-group">
+        <label for="magasin_Libelle"> magasin_Libelle </label>
+        <select placeholder="name" name="magasin" class="form-control" id="magasin_Libelle"
+                [(ngModel)]="stock.magasin.libelle" name="magasin_Libelle">
+          <option *ngFor="let magasin of magasins" [value]="magasin.libelle">{{magasin.libelle}}</option>
+        </select>
+      </div>
 
-      </select>
+      <div>
+        <button class="btn btn-success" type="submit">Save</button>
+      </div>
 
-    <button class="btn btn-success" (click)="save()">Save</button>
-  </div>
     </form>
-</div>
+  </div>
 </div>

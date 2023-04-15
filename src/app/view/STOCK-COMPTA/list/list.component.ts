@@ -17,13 +17,14 @@ import {CompteBudgetaire} from "../../../controller/model/CompteBudgetaire.model
 })
 export class ListComponent implements OnInit {
   categorie: Categorie= new Categorie();
-  magasin: Magasin = new Magasin() ;
+
   stock: Stock = new Stock() ;
   categories!: Categorie[] ;
-  public magasins: Magasin[];
   produits!: Produit[] ;
+
   comptebudgetaires!: CompteBudgetaire[] ;
   stocks!: Stock[] ;
+  magasins!: Magasin[];
 
   constructor(private listService: ListService,private magasinService: MagasinService ,private produitservice: ProduitService
               ,private categorieService: CategorieService ,public compteBudgetaireService: CompteBudgetaireService) {
@@ -63,7 +64,7 @@ export class ListComponent implements OnInit {
       this.produits = data);
   }
   public findAllcnt(): void {
-    this.compteBudgetaireService.findAllcnt().subscribe(data =>
+    this.compteBudgetaireService.findAll().subscribe(data =>
       this.comptebudgetaires = data);
   }
 

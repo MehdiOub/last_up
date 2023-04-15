@@ -2,7 +2,10 @@
   <div class="card-header">
     <h2>List magasin</h2>
 
-  </div>
+  </div><div *ngIf="magasins">
+  <!-- Display magasins data here -->
+
+
   <div class="card-body">
 
     <table class="table table-striped" *ngIf="magasins.length !=0">
@@ -18,19 +21,20 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let magasin of magasins ; index as i">
-        <td>{{magasin.id}} </td>
-        <td>{{magasin.libelle}}  </td>
-        <td>{{magasin.code}}  </td>
+      <ng-container *ngFor="let magasin of magasins ; index as i">
+        <tr *ngIf="magasin.libelle">
+          <td>{{magasin.id}} </td>
+          <td>{{magasin.libelle}}  </td>
+          <td>{{magasin.code}}  </td>
+          <td><span (click)="deleteMagasinByLibelle(magasin,i) " class="fa fa-trash btn btn-success"></span></td>
+        </tr>
+      </ng-container>
 
-
-        <td><span (click)="deleteMagasinByLibelle(magasin,i) " class="fa fa-trash btn btn-success"></span></td>
-      </tr>
 
 
       </tbody>
     </table>
-  </div>
+  </div></div>
 </div>
 <br>
 <!---------------------list 2 ------------------------------->
@@ -39,7 +43,7 @@
   <div class="card-header">
     <h2>List categories </h2>
 
-  </div>
+  </div><div *ngIf="categories">
   <div class="card-body">
 
     <table class="table table-striped" *ngIf="categories.length !=0">
@@ -48,6 +52,7 @@
         <th> ID</th>
         <th> libelle</th>
         <th> code </th>
+        <th> compteBudgetaire </th>
 
 
 
@@ -62,13 +67,13 @@
 
         <td  >{{categorie.code }}  </td>
 
-        <td> {{categorie.compteBudgetaire}} </td>
+        <td> {{categorie.libelleCat}} </td>
         <td><span (click)="deleteCategorieByLibelle(categorie ,i) " class="fa fa-trash btn btn-success"></span></td>
 
       </tr>
       </tbody>
     </table>
-  </div>
+  </div></div>
 </div>
 <br>
 
@@ -78,7 +83,7 @@
   <div class="card-header">
     <h2>List stock</h2>
 
-  </div>
+  </div><div *ngIf="stocks">
   <div class="card-body">
 
     <table class="table table-striped">
@@ -102,12 +107,12 @@
         <td>{{ stock.quantityStocke }}  </td>
         <td >
 
-          {{ stock.magasin.libelle }}
+          {{ stock.magasin.id }}
 
         </td>
-        <td> {{ stock.produit.libelle }} </td>
+        <td> {{ stock.produit.id}} </td>
       </tr>
       </tbody>
     </table>
-  </div>
+  </div></div>
 </div>

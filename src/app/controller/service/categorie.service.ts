@@ -29,6 +29,7 @@ export class CategorieService {
     }
     return this._categorie;
   }
+
   set categorie(value: Categorie) {
     this._categorie = value;
   }

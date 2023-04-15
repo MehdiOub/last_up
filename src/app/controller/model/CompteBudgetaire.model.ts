@@ -1,9 +1,9 @@
 export class CompteBudgetaire {
 
-  private id: number;
-  private libelle: String ;
+ public id: number;
+  public libelle: String ;
   public code: string;
 
-  private numero: number;
-  private montantMax: number;
+  public numero: number;
+  public montantMax: number;
 }

@@ -8,8 +8,15 @@
     <div class="form-group">
       <label for="code"> code: </label>
       <input id="code" type="text" class="form-control" [(ngModel)]="categorie.code">
-
     </div>
+    <div class="form-group">
+      <label for="comptebudgeter_Libelle"> comptebudgeter_Libelle </label>
+      <select  placeholder="name" name="comptebudgeter" class="form-control" id="comptebudgeter_Libelle"  [(ngModel)]="categorie.libelleCat" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let comptebudgeter of comptebudgeters" [value]="comptebudgeter.libelle">{{ comptebudgeter.libelle }}</option>
+
+      </select>
+    </div>
+
     <button class="btn btn-success" (click)="save()">Save</button>
   </div>
 </div>

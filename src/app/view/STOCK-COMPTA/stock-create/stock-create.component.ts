@@ -12,29 +12,24 @@ import {ProduitService} from "../../../controller/service/produit.service";
   styleUrls: ['./stock-create.component.css']
 })
 export class StockCreateComponent implements OnInit {
+  public magasins: Magasin[] ;
 
-  constructor(private stockService: StockService,private magasinService: MagasinService ,private produitservice: ProduitService) {
+  public magasin: Magasin;
+  public produit: Produit;
+  public produits: Produit[];
+  constructor(private stockService: StockService,private magasinService: MagasinService,private produitservice: ProduitService) {
     this.stock = new Stock();
     this.stock.magasin = new Magasin();
     this.stock.produit = new Produit();
   }
+  get stock(): Stock {
+    return this.stockService.stock;
+  }
 
-  public magasins: Magasin[] ;
-  public magasin: Magasin;
-  public produit: Produit;
-  public produits: Produit[];
+  set stock(value: Stock) {
+    this.stockService.stock = value;
+  }
 
-
-  public save(): void {
-      this.stockService.save().subscribe(data => {
-        if (data != null) {
-          console.log(data);
-          alert('save succreful');
-        } else {
-          alert('save failed');
-        }
-      });
-    }
   public findAlls(): void {
     this.magasinService.findAll().subscribe(data =>
       this.magasins = data);
@@ -44,18 +39,20 @@ export class StockCreateComponent implements OnInit {
       this.produits = data);
   }
 
-  get stock(): Stock {
-    return this.stockService.stock;
-  }
-
-  set stock(value: Stock) {
-    this.stockService.stock = value;
-  }
 
   ngOnInit(): void {
     this.findAlls();
     this.FindAll();
-
+  }
+  public save(): void {
+    this.stockService.save().subscribe(data => {
+      if (data != null) {
+        console.log(data);
+        alert('save succreful');
+      } else {
+        alert('save failed');
+      }
+    });
   }
   onSubmit(){
     this.save();
